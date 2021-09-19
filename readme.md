@@ -4,10 +4,28 @@ This service will help you organize your tasks.
 ## ENV variables
 - PORT=80 -> http port the server listens to
 
-## How to run?
+## How to run (single instance)?
+```
+docker build -t to-do .
+
+docker run --rm to-do --name --p 80:80 to-do
+```
+
+## How to run (clustered)?
+### Build the container
 `docker build -t to-do .`
 
-`docker run --rm to-do --name --p 80:80 to-do`
+### Init docker swarm
+`docker swarm init`
+
+### Run
+`docker stack deploy --compose-file docker-compose.yml to-do`
+
+## How to stop?
+````
+docker stack rm to-do
+docker swarm leave
+````
 
 ## Endpoints
 - GET /health

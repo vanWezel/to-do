@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    image: to-do:latest
+    environment:
+      - PORT=80
+    ports:
+      - "80:80"
+    healthcheck:
+      test: "wget --no-verbose --tries=1 --spider http://127.0.0.1:8083/health || exit 1"
+    deploy:
+      replicas: 3
