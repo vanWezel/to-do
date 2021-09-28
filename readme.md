@@ -1,5 +1,5 @@
 # To Do Service
-This service will help you organize your tasks.
+This service will help you organise your tasks.
 
 ## ENV variables
 - PORT=80 -> http port the server listens to
