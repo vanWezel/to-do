@@ -21,7 +21,7 @@ func TestHandler_TaskIndex(t *testing.T) {
 
 	c := e.NewContext(req, rec)
 
-	h := New()
+	h := NewMock()
 	assert.NoError(t, h.TaskIndex(c))
 	assert.Equal(t, true, strings.Contains(rec.Body.String(), "Successfully loaded"))
 }

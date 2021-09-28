@@ -16,7 +16,7 @@ func (h *Handler) TaskDelete(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusBadRequest, fmt.Errorf("id is missing"))
 	}
 
-	if err := h.task.Delete(id); err != nil {
+	if err := h.Task.Delete(id); err != nil {
 		log.Print("error while saving", err)
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}

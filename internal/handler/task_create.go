@@ -16,7 +16,7 @@ func (h *Handler) TaskCreate(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
-	if err := h.task.Create(&m); err != nil {
+	if err := h.Task.Create(&m); err != nil {
 		log.Print("error while saving", err)
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -24,6 +24,6 @@ func (h *Handler) TaskCreate(c echo.Context) error {
 	return c.JSON(http.StatusCreated, model.Response{
 		Message: "Task successfully created",
 		Status:  true,
-		Data: m,
+		Data:    m,
 	})
 }

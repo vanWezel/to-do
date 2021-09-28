@@ -22,7 +22,7 @@ func (h *Handler) TaskUpdate(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusBadRequest, fmt.Errorf("id is missing"))
 	}
 
-	if err := h.task.Update(id, &m); err != nil {
+	if err := h.Task.Update(id, &m); err != nil {
 		log.Print("error while saving", err)
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -30,6 +30,6 @@ func (h *Handler) TaskUpdate(c echo.Context) error {
 	return c.JSON(http.StatusOK, model.Response{
 		Message: "Task successfully updated",
 		Status:  true,
-		Data: m,
+		Data:    m,
 	})
 }

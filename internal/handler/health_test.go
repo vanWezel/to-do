@@ -18,8 +18,8 @@ func TestHealthCheck(t *testing.T) {
 	c.SetPath("/health")
 
 	h := &Handler{
-		task:    nil,
-		comment: nil,
+		Task:    nil,
+		Comment: nil,
 	}
 
 	if assert.NoError(t, h.Health(c)) {

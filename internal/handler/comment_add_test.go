@@ -26,7 +26,7 @@ func TestHandler_CommentAddSuccess(t *testing.T) {
 	c.SetParamNames("id")
 	c.SetParamValues("6c0dd3e9-f7e7-478a-80cd-a1309f22f4dd")
 
-	h := New()
+	h := NewMock()
 	assert.NoError(t, h.CommentAdd(c))
 	assert.Equal(t, "{\"message\":\"Comment successfully added\",\"status\":true,\"data\":{\"id\":\"b2ff6329-9023-4776-a0ed-ff5fa98a888d\",\"message\":\"See you soon!\",\"created_at\":\"0001-01-01T00:00:00Z\",\"updated_at\":\"0001-01-01T00:00:00Z\"}}\n", rec.Body.String())
 }
@@ -44,6 +44,6 @@ func TestHandler_CommentAddNoBody(t *testing.T) {
 	c.SetParamNames("id")
 	c.SetParamValues("6c0dd3e9-f7e7-478a-80cd-a1309f22f4dd")
 
-	h := New()
+	h := NewMock()
 	assert.Error(t, h.CommentAdd(c))
 }

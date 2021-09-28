@@ -25,6 +25,6 @@ func TestHandler_CommentDelete(t *testing.T) {
 	c.SetParamNames("id")
 	c.SetParamValues("b2ff6329-9023-4776-a0ed-ff5fa98a888d")
 
-	h := New()
+	h := NewMock()
 	assert.NoError(t, h.CommentDelete(c))
 }

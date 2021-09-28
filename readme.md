@@ -4,6 +4,9 @@ This service will help you organize your tasks.
 ## ENV variables
 - PORT=80 -> http port the server listens to
 
+## How to run the tests?
+`go test ./...`
+
 ## How to run (single instance)?
 ```
 docker build -t to-do .

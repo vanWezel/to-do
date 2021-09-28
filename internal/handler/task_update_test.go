@@ -26,7 +26,7 @@ func TestHandler_TaskUpdate(t *testing.T) {
 	c.SetParamNames("id")
 	c.SetParamValues("6c0dd3e9-f7e7-478a-80cd-a1309f22f4dd")
 
-	h := New()
+	h := NewMock()
 	assert.NoError(t, h.TaskUpdate(c))
 	assert.Equal(t, true, strings.Contains(rec.Body.String(), "Task successfully updated"))
 }

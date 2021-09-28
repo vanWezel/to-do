@@ -23,6 +23,6 @@ func TestHandler_TaskComplete(t *testing.T) {
 	c.SetParamNames("id")
 	c.SetParamValues("e3dc06f0-2568-42de-8760-7481d7408bd4")
 
-	h := New()
+	h := NewMock()
 	assert.NoError(t, h.TaskComplete(c))
 }

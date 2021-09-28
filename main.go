@@ -6,7 +6,9 @@ import (
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
 
+	"github.com/vanWezel/to-do/internal/comment"
 	"github.com/vanWezel/to-do/internal/handler"
+	"github.com/vanWezel/to-do/internal/task"
 	"github.com/vanWezel/to-do/pkg/helper"
 )
 
@@ -15,7 +17,10 @@ func main() {
 
 	e := echo.New()
 	e.Validator = &handler.Validator{Validator: validator.New()}
-	h := handler.New()
+	h := &handler.Handler{
+		Task:    task.NewMock(),
+		Comment: comment.NewMock(),
+	}
 
 	e.GET("/health", h.Health)
 

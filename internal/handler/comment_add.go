@@ -22,7 +22,7 @@ func (h *Handler) CommentAdd(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusBadRequest, fmt.Errorf("id is missing"))
 	}
 
-	if err := h.comment.Add(id, &m); err != nil {
+	if err := h.Comment.Add(id, &m); err != nil {
 		log.Print("error while saving", err)
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -30,6 +30,6 @@ func (h *Handler) CommentAdd(c echo.Context) error {
 	return c.JSON(http.StatusCreated, model.Response{
 		Message: "Comment successfully added",
 		Status:  true,
-		Data: m,
+		Data:    m,
 	})
 }

@@ -6,13 +6,13 @@ import (
 )
 
 type Handler struct {
-	task task.Interface
-	comment comment.Interface
+	Task    task.Interface
+	Comment comment.Interface
 }
 
-func New() *Handler {
+func NewMock() *Handler {
 	return &Handler{
-		task: task.NewMock(),
-		comment: comment.NewMock(),
+		Task:    task.NewMock(),
+		Comment: comment.NewMock(),
 	}
 }

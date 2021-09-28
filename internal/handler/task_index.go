@@ -11,7 +11,7 @@ import (
 func (h *Handler) TaskIndex(c echo.Context) error {
 	page := getPageQueryParam(c.QueryParam("page"))
 
-	list, err := h.task.Index(page)
+	list, err := h.Task.Index(page)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}

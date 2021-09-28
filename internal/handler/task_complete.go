@@ -16,7 +16,7 @@ func (h *Handler) TaskComplete(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusBadRequest, fmt.Errorf("id is missing"))
 	}
 
-	if err := h.task.Complete(id); err != nil {
+	if err := h.Task.Complete(id); err != nil {
 		log.Print("error while saving", err)
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
